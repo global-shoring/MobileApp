@@ -3,11 +3,11 @@
 
 define(['angular',
         'angular-mocks',
-        'modules/search/accountController',
+        'modules/search/dashboardController',
         'constants/serviceConstants',
         'constants/controllerConstants',
         '/base/scripts/tests/unit/testHelper.js'
-], function (angular, mocks, accountController,
+], function (angular, mocks, dashboardController,
     serviceConstants, controllerConstants, testHelper) {
 
     xdescribe('account View', function () {
@@ -23,10 +23,10 @@ define(['angular',
         //load all modules, including the html template, needed to support the test
         beforeEach(function () {
             app = angular.module("testModule", []);
-            app.controller('accountController', accountController);
+            app.controller('dashboardController', dashboardController);
         });
 
-        beforeEach(module('testModule', 'js/src/modules/account/account.html'));
+        beforeEach(module('testModule', 'js/src/modules/home/dashboard.html'));
 
         beforeEach(module(function ($provide) {
             $provide.provider('adp.services.userContext', testHelper.mockUserContextProvider);
@@ -36,7 +36,7 @@ define(['angular',
 
         beforeEach(inject(function ($injector, $rootScope, $compile, $q, $controller, $sniffer, $templateCache, $timeout) {
             q = $q;
-            templateHtml = $templateCache.get('js/src/modules/account/account.html');
+            templateHtml = $templateCache.get('js/src/modules/home/dashboard.html');
             rootScope = $rootScope;
             scope = $rootScope.$new();
             compile = $compile;
@@ -52,7 +52,7 @@ define(['angular',
                 return deffered.promise;
             });
 
-            ctrl = $controller(accountController, {
+            ctrl = $controller(dashboardController, {
                 $scope: scope
             });
 

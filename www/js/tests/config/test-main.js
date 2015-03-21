@@ -4,7 +4,6 @@ require.config({
     paths: {
         "jquery": "../lib/jquery-1.8.2.min",
         'angular': '../lib/angular',
-        "toaster":"../lib/toaster",
         'angular-mocks': '../tests/lib/angular-mocks',
         'mock-ajax': '../tests/lib/mock-ajax',
         'sinon': '../tests/lib/sinon'
@@ -19,10 +18,6 @@ require.config({
         },
         'jquery': {
             exports: 'jquery'
-        },
-        'toaster': {
-            deps: ["angular"],
-            exports: 'toaster'
         }
     }
 });
