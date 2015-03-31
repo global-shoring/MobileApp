@@ -23,14 +23,18 @@ define(['angular',
                         // Set up the various states which the app can be in.
                         // Each state's controller can be found in controllers.js
                         $stateProvider                        
-                          .state('dashboard', {
-                              url: "/dashboard",                              
-                              controller: 'adp.dashboardController',
-                              templateUrl: "js/src/modules/home/dashboard.html"
-                          });
+                          .state('login', {
+                              url: "/login",
+                              controller: 'adp.mobile.login.loginController',
+                              templateUrl: "js/src/modules/login/templates/login.html"
+                          }).state('dashboard', {
+                                url: "/dashboard",
+                                controller: 'adp.dashboardController',
+                                templateUrl: "js/src/modules/home/dashboard.html"
+                            });;
 
                         // if none of the above states are matched, use this as the fallback
-                        $urlRouterProvider.otherwise('/dashboard');
+                        $urlRouterProvider.otherwise('/login');
 
                     });
 });
