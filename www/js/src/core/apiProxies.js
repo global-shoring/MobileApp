@@ -1,12 +1,18 @@
-﻿"use strict";
+﻿/**
+ * Created by Ramesh on 3/22/2015.
+ */
+
+"use strict";
 
 define(['angular',  
-        '../apiProxies/accountApiProxy'
+        '../apiProxies/accountApiProxy',
+        '../apiProxies/weatherReportApiProxy'
 ],
-    function (angular, accountApiProxy) {
+    function (angular, accountApiProxy, weatherReportApiProxy) {
 
         var proxies = {     
-            'adp.services.accountApiProxy': accountApiProxy
+            'adp.mobile.services.accountApiProxy': accountApiProxy,
+            'adp.mobile.services.weatherReportApiProxy': weatherReportApiProxy
         };
 
         return proxies;

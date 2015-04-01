@@ -1,4 +1,8 @@
-﻿'use strict';
+﻿/**
+ * Created by Ramesh on 3/22/2015.
+ */
+
+'use strict';
 
 define([
   'jquery',
@@ -8,6 +12,7 @@ define([
   'ui-router',
    './services/httpInterceptorService',
    'src/apiProxies/baseApiProxy',
+   'src/controllers/baseController',
    'src/core/apiProxies',
    'src/core/services',
     'src/core/routes',
@@ -18,34 +23,35 @@ define([
    'src/core/directives'
 ],
   function ($, _, bootstrap, angularAnimate,uiRouter,
-         httpInterceptorService, baseApiProxy, apiProxies, services) {
+         httpInterceptorService, baseApiProxy, baseController, apiProxies, services) {
      
      
-      angular.module('core.apiProxies', [])
-         .service('adp.services.baseApiProxy', baseApiProxy);
+      angular.module('adp.mobile.core.apiProxies', [])
+         .service('adp.mobile.services.baseApiProxy', baseApiProxy);
 
-      angular.module('core.apiProxies')
+      angular.module('adp.mobile.core.apiProxies')
           .service(apiProxies);
 
-      angular.module('core.services', [])         
+      angular.module('adp.mobile.core.services', [])
           .service(services);
 
-      var app = angular.module('adp.core.module', [
+      var app = angular.module('adp.mobile.coreModule', [
               'ui.bootstrap',
               'ngAnimate',
               'ui.router',
 
-              'core.routes',
-              'core.constants',
-              'core.providers',
-              'core.apiProxies',
-              'core.services',
-              'core.utilities',
-              'core.widgets'
+              'adp.mobile.core.routes',
+              'adp.mobile.core.constants',
+              'adp.mobile.core.providers',
+              'adp.mobile.core.apiProxies',
+              'adp.mobile.core.services',
+              'adp.mobile.core.utilities',
+              'adp.mobile.core.widgets'
       ]);
       
 
-      app.service('adp.services.httpInterceptorService', httpInterceptorService)        
+      app.service('adp.mobile.services.httpInterceptorService', httpInterceptorService)
+          .controller('adp.mobile.controllers.baseController', baseController)
           .directive("loader", function ($rootScope) {
               return function ($scope, element, attrs) {
                   $scope.$on("loader_show", function () {
@@ -57,7 +63,7 @@ define([
               };
           })
           .config(['$httpProvider', function ($httpProvider) {
-              $httpProvider.interceptors.push('adp.services.httpInterceptorService');
+              $httpProvider.interceptors.push('adp.mobile.services.httpInterceptorService');
           }]);
 
       return app;

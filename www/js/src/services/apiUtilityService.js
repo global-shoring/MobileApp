@@ -1,4 +1,8 @@
-﻿define([],
+﻿/**
+ * Created by Ramesh on 3/22/2015.
+ */
+
+define([],
     function () {
 
       var apiUtilityService = function (serviceConstants) {
@@ -52,6 +56,6 @@
 
       };
 
-      apiUtilityService.$inject = ['adp.constants.serviceConstants'];
+      apiUtilityService.$inject = ['adp.mobile.constants.serviceConstants'];
       return apiUtilityService;
     });

@@ -1,4 +1,8 @@
-﻿define(['require'],
+﻿/**
+ * Created by Ramesh on 3/22/2015.
+ */
+
+define(['require'],
     function (require) {
         'use strict';
         require([]);
@@ -34,9 +38,9 @@
 
         
         dashboardController.$inject = ['$rootScope', '$scope', '$q', '$location',
-                                           'adp.services.userContext',
-                                           'adp.constants.serviceConstants',
-                                           'adp.constants.controllerConstants'];
+                                           'adp.mobile.services.userContext',
+                                           'adp.mobile.constants.serviceConstants',
+                                           'adp.mobile.constants.controllerConstants'];
 
         return dashboardController;
     });

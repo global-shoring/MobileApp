@@ -1,7 +1,10 @@
-﻿define(['angular',
-], function (angular) {
+﻿/**
+ * Created by Ramesh on 3/22/2015.
+ */
+
+define(['angular'], function (angular) {
       
-    return angular.module('core.widgets', []);
+    return angular.module('adp.mobile.core.widgets', []);
 
 });
  

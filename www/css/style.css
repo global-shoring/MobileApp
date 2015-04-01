@@ -1,16 +1,13 @@
 /* Empty. Add your own CSS if you like */
 
 .adp-header {
-background-color:red;
+background-color:rgb(201, 10, 10);
 color:white;
 font-weight:bold;
 }
 .adp-footer {
-background-color:red;
+background-color:rgb(201, 10, 10)
 }
 .adp-tiles {  
     margin:40px !important;
-}
-.view-container {
-margin-top:30px;
 }

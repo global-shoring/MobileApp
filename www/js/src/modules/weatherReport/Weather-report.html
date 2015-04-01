@@ -1,0 +1,32 @@
+﻿<ion-view view-title="Weather Report">
+    <ion-content class="span12">
+        <div class="panel panel-default weather-panel">
+            <div class="panel-body">
+                <div>
+                    <div>
+                        <h1>Lat : {{weatherReportData.coord.lat}}</h1>
+                        <h1>Longitude : {{weatherReportData.coord.lon}}</h1>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h1>{{weather.name}}</h1>
+                    <h1 class="temp">{{weatherReportData.main.temp - 273.15 | number:1}}&deg;C</h1>
+                </div>
+
+                <div class="col-sm-6 conditions">
+                    <h4>{{weatherReportData.weather[0].description}}</h4>
+                    <h4>Humidity: {{weatherReportData.main.humidity}}%</h4>
+                    <h4>Pressure: {{weatherReportData.main.pressure}} hPa</h4>
+                </div>
+                
+                <div>
+                    <h4>wind: {{weatherReportData.wind.speed}}%</h4>
+                </div>
+                
+                <div>
+                    <h1>Sea Level : {{weatherReportData.main.sea_level}}</h1>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

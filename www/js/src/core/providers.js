@@ -1,10 +1,13 @@
-﻿"use strict";
+﻿/**
+ * Created by Ramesh on 3/22/2015.
+ */
 
-define(['angular',
-    '../providers/httpProvider'
+"use strict";
+
+define(['angular','../providers/httpProvider'
 ], function (angular, httpProvider) {
 
-   return angular.module('core.providers', [])
-       .provider('adp.providers.httpProvider', [httpProvider]);
+    return angular.module('adp.mobile.core.providers', [])
+       .provider('adp.mobile.providers.httpProvider', [httpProvider]);
 
 });
