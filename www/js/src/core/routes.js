@@ -31,6 +31,10 @@ define(['angular',
                                 url: "/dashboard",
                                 controller: 'adp.dashboardController',
                                 templateUrl: "js/src/modules/home/dashboard.html"
+                            }).state('location', {
+                                url: "/location",
+                                controller: 'adp.mobile.location.locationController',
+                                templateUrl: "js/src/modules/location/templates/location.html"
                             });;
 
                         // if none of the above states are matched, use this as the fallback

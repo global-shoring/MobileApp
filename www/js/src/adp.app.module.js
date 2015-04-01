@@ -7,7 +7,8 @@ define([
   './adp.core.module',
   './adp.home.module',
   './adp.account.module',
-  './modules/login/adp.mobile.login.loginModule'
+  './modules/login/adp.mobile.login.loginModule',
+   './modules/location/adp.mobile.location.locationModule'
 ],
   function (angular, Q, $) {
     
@@ -15,7 +16,8 @@ define([
            'adp.core.module',
            'adp.home.module',
            'adp.account.module',
-           'adp.mobile.login.loginModule'
+           'adp.mobile.login.loginModule',
+           'adp.mobile.location.locationModule'
       ]);
 
       var bootstrap = function (app) {
