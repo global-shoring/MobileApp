@@ -7,7 +7,7 @@ define([],function(){
     var loginController = function($scope, $state){
         $scope.user = {};
         $scope.userLogin = function(){
-            $state.go("dashboard",{user:$scope.user});
+            $state.go("app.dashboard",{user:$scope.user});
         };
     };
 
