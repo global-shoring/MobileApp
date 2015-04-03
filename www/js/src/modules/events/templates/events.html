@@ -1,0 +1,12 @@
+<ion-view view-title="Events">
+    <ion-content class="span12">
+        <label class="item item-input">
+            <span class="input-label">Event Name</span>
+        </label>
+        <ion-list>
+            <ion-item ng-repeat="event in events">
+                {{event.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

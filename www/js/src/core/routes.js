@@ -70,6 +70,22 @@ define(['angular','ui-router'], function(angular) {
                             controller: 'adp.mobile.controllers.weatherReportController'
                         }
                     }
+                }).state('app.events', {
+                    url: "/events",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "js/src/modules/events/templates/events.html",
+                            controller: 'adp.mobile.controllers.eventsController'
+                        }
+                    }
+                }).state('app.news', {
+                    url: "/news",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "js/src/modules/news/templates/news.html",
+                            controller: 'adp.mobile.controllers.newsController'
+                        }
+                    }
                 });
 
             // if none of the above states are matched, use this as the fallback
