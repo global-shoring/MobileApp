@@ -54,8 +54,15 @@ define(['angular','ui-router'], function(angular) {
                             controller: 'adp.mobile.controllers.locationController'
                         }
                     }
-                })
-                .state('app.weatherReport', {
+                }).state('app.contacts', {
+                    url: "/contacts",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "js/src/modules/contacts/templates/contacts.html",
+                            controller: 'adp.mobile.controllers.contactsController'
+                        }
+                    }
+                }).state('app.weatherReport', {
                     url: "/weatherReport",
                     views: {
                         'menuContent': {
