@@ -15,8 +15,8 @@ define([
   './modules/location/locationModule',
   './modules/weatherReport/weatherReportModule',
   './modules/contacts/contactsModule',
-        './modules/events/eventsModule',
-        './modules/news/newsModule'
+    './modules/events/eventsModule',
+    './modules/news/newsModule'
 ],
   function (angular, Q, $) {
     
