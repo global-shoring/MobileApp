@@ -14,21 +14,22 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-           'scripts/tests/config/test-main.js',
-           'scripts/lib/jquery-1.8.2.min.js',
-           'scripts/lib/angular.js',
-           'scripts/lib/toaster.js',
+           'js/tests/config/test-main.js',
+           'js/lib/jquery-1.8.2.min.js',
+           'js/lib/angular/angular.js',
 
-          { pattern: 'scripts/lib/*.js', included: false },
+          { pattern: 'js/lib/**/*.js', included: false },
+          { pattern: 'js/lib/*.js', included: false },
 
-          { pattern: 'scripts/src/**/*.js', included: false, watched: true },
-          { pattern: 'scripts/tests/lib/*.js', included: false, watched: false },
-          { pattern: 'scripts/tests/unit/**/*.js', included: false, watched: true },
-          { pattern: 'scripts/tests/unit/**/**/*.js', included: false, watched: true },
-          { pattern: 'scripts/tests/unit/*.js', included: false, watched: true },         
+          { pattern: 'js/src/**/*.js', included: false, watched: true },
+          { pattern: 'js/src/**/**/*.js', included: false, watched: true },
+          { pattern: 'js/tests/lib/*.js', included: false, watched: false },
+          { pattern: 'js/tests/unit/**/*.js', included: false, watched: true },
+          { pattern: 'js/tests/unit/**/**/*.js', included: false, watched: true },
+          { pattern: 'js/tests/unit/*.js', included: false, watched: true },         
 
            //path of all html files        
-         'scripts/src/**/**/*.html'
+         'js/src/**/**/*.html'
         ],
 
         // list of files to exclude
@@ -37,7 +38,7 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'scripts/src/**/**/*.html': ['ng-html2js']
+            'js/src/**/**/*.html': ['ng-html2js']
         },
 
         ngHtml2JsPreprocessor: {

@@ -8,6 +8,18 @@ font-weight:bold;
 .adp-footer {
 background-color:rgb(201, 10, 10)
 }
-.adp-tiles {  
-    margin:40px !important;
+.adp-tiles-sm {  
+    margin:1% !important;
+    height: 150px;
+    width: 45%;
+    background-color: #cccccc;
+}
+
+.adp-tiles-lg {  
+    margin:10px !important;
+    height: 150px;
+    background-color: #ccc;
+}
+.tile-container {
+    padding: 1%;
 }

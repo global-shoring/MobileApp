@@ -1,13 +1,9 @@
-﻿/**
- * Created by Ramesh on 3/22/2015.
- */
-
-<ion-view view-title="Dashboard">
+﻿<ion-view view-title="Dashboard">
     <ion-content class="span12">
         <ion-list>
-            <ion-item class="span5" ng-repeat="tile in tiles">
-                <div class="item" style="background-color:{{tile.bgColor}}">
-                   <div class="span12">
+            <ion-item class="span6" ng-repeat="tile in tiles" >
+                <div class="item" style="background-color:{{tile.bgColor}}" ng-click="navigateToLocationView(tile.location)">
+                    <div class="span12">
                         <span>Location:</span>
                         <span>{{tile.location}}</span>
                     </div>

@@ -4,10 +4,10 @@
 
 'use strict';
 define([],function(){
-    var locationController = function($scope, $state){
+    var locationDetailsController = function($scope, $state){
         $scope.items = ['Chennai','Hyderabad','Banglore','Mumbhai'];
 
     };
-    locationController.inject = ['$scope', '$state'];
-    return locationController;
+    locationDetailsController.inject = ['$scope', '$state'];
+    return locationDetailsController;
 });

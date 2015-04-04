@@ -7,12 +7,19 @@ define([],
         return {
             "httpVerb": { GET: "GET", POST: "POST", DELETE: "DELETE", PUT: "PUT" },
             'weatherReportApi': 'weatherReportApi',
+            "weatherForecastApi":"weatherForecastApi",
             "httpMappings": [
                 {
                     "name": "weatherReportApi",
                     "hostname": "localhost:8100",
                     "scheme": "http",
                     "pattern": "/weatherApi"
+                },
+                {
+                    "name": "weatherForecastApi",
+                    "hostname": "localhost:8100",
+                    "scheme": "http",
+                    "pattern": "/weatherForecastApi"
                 }
             ]
         };

@@ -6,12 +6,16 @@ define(['angular',
 ],
     function (angular, mocks, services) {
 
-        xdescribe('services.js tests', function () {
+        describe('services.js tests', function () {
 
             describe('services object', function () {
-               it('should have accountApiProxy defined', function () {
-                   expect(services["adp.services.accountApiProxy"]).toBeDefined();
-                });              
+                it('should have apiUtilityService defined', function () {
+                   expect(services["adp.mobile.services.apiUtilityService"]).toBeDefined();
+                });
+
+                it('should have userContext defined', function () {
+                    expect(services['adp.mobile.services.userContext']).toBeDefined();
+                });
             });
         });
 

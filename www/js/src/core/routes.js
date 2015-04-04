@@ -50,8 +50,16 @@ define(['angular','ui-router'], function(angular) {
                     url: "/location",
                     views: {
                         'menuContent': {
-                            templateUrl: "js/src/modules/location/templates/location.html",
+                            templateUrl: "js/src/modules/location/location.html",
                             controller: 'adp.mobile.controllers.locationController'
+                        }
+                    }
+                }).state('app.locationDetails', {
+                    url: "/locationDetails",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "js/src/modules/location/locationDetails.html",
+                            controller: 'adp.mobile.controllers.locationDetailsController'
                         }
                     }
                 }).state('app.contacts', {

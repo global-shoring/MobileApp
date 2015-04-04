@@ -5,6 +5,10 @@
         {
             "path": "/weatherApi",
             "proxyUrl": "http://api.openweathermap.org/data/2.5/weather"
-        }
+        },
+         {
+            "path": "/weatherForecastApi",
+            "proxyUrl": "http://api.openweathermap.org/data/2.5/forecast"
+        }        
     ]
 }

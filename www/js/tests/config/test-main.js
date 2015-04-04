@@ -1,9 +1,9 @@
 require.config({
     // Karma serves files under /base, which is the basePath from your config file
-    baseUrl: '/base/scripts/src',
+    baseUrl: '/base/js/src',
     paths: {
         "jquery": "../lib/jquery-1.8.2.min",
-        'angular': '../lib/angular',
+        'angular': '../lib/angular/angular',
         'angular-mocks': '../tests/lib/angular-mocks',
         'mock-ajax': '../tests/lib/mock-ajax',
         'sinon': '../tests/lib/sinon'

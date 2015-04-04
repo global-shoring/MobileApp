@@ -1,18 +1,17 @@
-﻿/// <reference path="../../src/views/error.js" />
-'use  strict';
+﻿'use  strict';
 
 define(['angular',
         'angular-mocks',
-        'modules/search/dashboardController',
+        'modules/home/dashboardController',
         'constants/serviceConstants',
         'constants/controllerConstants',
-        '/base/scripts/tests/unit/testHelper.js'
+        '/base/js/tests/unit/testHelper.js'
 ], function (angular, mocks, dashboardController,
     serviceConstants, controllerConstants, testHelper) {
 
-    xdescribe('account View', function () {
+    describe('dashboard', function () {
         var app, compile, scope, location, ctrl, response,
-                 q,
+                 q, originalTimeout,
                  rootScope, _window,
                  userContext, windowSpy;
 
@@ -29,31 +28,37 @@ define(['angular',
         beforeEach(module('testModule', 'js/src/modules/home/dashboard.html'));
 
         beforeEach(module(function ($provide) {
-            $provide.provider('adp.services.userContext', testHelper.mockUserContextProvider);
-            $provide.constant('adp.constants.serviceConstants', serviceConstants);
-            $provide.constant('adp.constants.controllerConstants', controllerConstants);
+            $provide.provider('adp.mobile.context.appContext', testHelper.mockAppContextProvider);
+            $provide.provider('adp.mobile.services.userContext', testHelper.mockUserContextProvider);
+            $provide.constant('adp.mobile.constants.serviceConstants', serviceConstants);
+            $provide.constant('adp.mobile.constants.controllerConstants', controllerConstants);
         }));
 
-        beforeEach(inject(function ($injector, $rootScope, $compile, $q, $controller, $sniffer, $templateCache, $timeout) {
+        beforeEach(inject(function ($injector, $rootScope, $compile, $q, $controller, $templateCache, $location) {
             q = $q;
             templateHtml = $templateCache.get('js/src/modules/home/dashboard.html');
             rootScope = $rootScope;
             scope = $rootScope.$new();
             compile = $compile;
+            location = $location;
+            
+            originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+            jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
 
-            userContext = $injector.get('adp.services.userContext');
-            serviceConstants = $injector.get('adp.constants.serviceConstants');
-            controllerConstants = $injector.get('adp.constants.controllerConstants');
+            userContext = $injector.get('adp.mobile.services.userContext');
+            serviceConstants = $injector.get('adp.mobile.constants.serviceConstants');
+            controllerConstants = $injector.get('adp.mobile.constants.controllerConstants');
 
-            userContext.getUserName = q.defer();
-            userContext.getUserName = jasmine.createSpy('getUserNameSpy').andCallFake(function () {
-                var deffered = q.defer();
-                deffered.resolve({});
-                return deffered.promise;
+            userContext.getUserInfoQ = q.defer();
+            userContext.getUserInfo = jasmine.createSpy('getUserNameSpy').and.callFake(function () {
+                return userContext.getUserInfoQ.promise;
             });
-
+            
             ctrl = $controller(dashboardController, {
-                $scope: scope
+                $rootScope: rootScope,
+                $scope: scope,
+                $q:q,
+                $location : location
             });
 
             templateElement = angular.element(templateHtml);
@@ -66,7 +71,13 @@ define(['angular',
             compile = null;
             q = null;
             angular.element(templateDom).remove();
+            jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
         });
 
+        describe('view ', function() {
+                it('should be defined ion view', function () {
+                    expect(templateDom.find('ion-view')).toBeDefined();
+                });
+        });
     });
 });

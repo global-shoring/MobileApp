@@ -1,0 +1,35 @@
+﻿<ion-view view-title="Location">
+    <ion-content>
+        <div class="tile-container">
+            <div class="row">
+                <div class="col adp-tiles-lg" ng-click="navigateToView('weatherReport')">
+                    <div class="row">
+                        <div class="col"> Humidity:{{weatherReportSummary.humidity}}%</div>
+                        <div class="col">Temp:{{weatherReportSummary.temperature.current- 273.15 | number:1}}&deg;C</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"> Wind:{{weatherReportSummary.wind*3.6}} KM/Hrs</div>
+                        <div class="col"> {{weatherReportSummary.description}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"> Pressure:{{weatherReportSummary.pressure}} hPa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col adp-tiles-sm" ng-click="navigateToView('locationDetails')">.col.col-75</div>
+                <div class="col adp-tiles-sm" ng-click="navigateToView('contacts')">.col</div>
+            </div>
+
+            <div class="row">
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('map')">.col.col-75</div>
+                <div class="col adp-tiles-sm" ng-click="navigateToView('events')">.col</div>
+            </div>
+
+            <div class="row">
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('admin')">.col.col-75</div>
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('help')">.col</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

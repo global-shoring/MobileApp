@@ -18,6 +18,17 @@ define([], function () {
             return baseApiProxy.getHttpPromiseForReadApi(httpConfig);
         };
 
+        this.getWeatherForecast = function (params) {
+            var httpConfig = {
+                url: apiUtilityService.getApiUrlFromConfig(serviceConstants.weatherForecastApi),
+                method: serviceConstants.httpVerb.GET,
+                type: 'application/json',
+                params: params
+            };
+
+            return baseApiProxy.getHttpPromiseForReadApi(httpConfig);
+        };
+
     };
 
     weatherReportApiProxy.$inject = ['$http', '$q', 'adp.mobile.services.baseApiProxy',

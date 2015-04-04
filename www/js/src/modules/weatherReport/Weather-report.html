@@ -1,30 +1,62 @@
 ﻿<ion-view view-title="Weather Report">
     <ion-content class="span12">
-        <div class="panel panel-default weather-panel">
-            <div class="panel-body">
-                <div>
-                    <div>
-                        <h1>Lat : {{weatherReportData.coord.lat}}</h1>
-                        <h1>Longitude : {{weatherReportData.coord.lon}}</h1>
-                    </div>
+        <div id="currentWeather">
+            <div class="row">
+                <div class="col-20">
+                    <h1>{{weatherReportData.temp.current - 273.15 | number:1}}&deg;C</h1>
                 </div>
-                <div class="col-sm-6">
-                    <h1>{{weather.name}}</h1>
-                    <h1 class="temp">{{weatherReportData.main.temp - 273.15 | number:1}}&deg;C</h1>
+            </div>
+            <div class="row">
+                <div class="col-20">
+                    <h2>Min:{{weatherReportData.temp.min - 273.15 | number:1}}&deg;C</h2>
                 </div>
+                <div class="col-20">
+                    <h2>Max:{{weatherReportData.temp.max - 273.15 | number:1}}&deg;C</h2>
+                </div>
+            </div>
+            <div class="col-20">
+               <h1> {{locationData.place}}, {{locationData.country}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <h1>Lat : {{locationData.coord.lat}}</h1>
+            </div>
+            <div class="col-20">
+                <h1>Long : {{locationData.coord.lon}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <h4>{{weatherReportData.description}}</h4>
+            </div>
+            <div class="col-20">
+                <h4>Humidity: {{weatherReportData.humidity}}%</h4>
+            </div>
+            <div class="col-20">
+                <h4>Pressure: {{weatherReportData.pressure}} hPa</h4>
+            </div>
+        </div>
 
-                <div class="col-sm-6 conditions">
-                    <h4>{{weatherReportData.weather[0].description}}</h4>
-                    <h4>Humidity: {{weatherReportData.main.humidity}}%</h4>
-                    <h4>Pressure: {{weatherReportData.main.pressure}} hPa</h4>
-                </div>
-                
-                <div>
-                    <h4>wind: {{weatherReportData.wind.speed}}%</h4>
-                </div>
-                
-                <div>
-                    <h1>Sea Level : {{weatherReportData.main.sea_level}}</h1>
+        <div class="row">
+            <div class="col-20">
+                <h4>wind: {{weatherReportData.wind.speed*3.6}} KM/Hr</h4>
+            </div>
+
+            <div class="col-20">
+                <h1>Sea Level : {{weatherReportData.sealevel}}</h1>
+            </div>
+        </div>
+        </div>
+        <div id="weatheForecast">
+            <div> <h1> Forecast </h1></div>
+            <div>
+                <div ng-repeat="item in weatherforecastData">
+                    <div class="col">
+                        <div class="col-20">
+                            <h1>{{item.temp.current - 273.15 | number:1}}&deg;C</h1>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
