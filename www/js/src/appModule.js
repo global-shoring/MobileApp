@@ -16,7 +16,9 @@ define([
   './modules/weatherReport/weatherReportModule',
   './modules/contacts/contactsModule',
     './modules/events/eventsModule',
-    './modules/news/newsModule'
+    './modules/news/newsModule',
+        './modules/map/mapsModule'
+
 ],
   function (angular, Q, $) {
     
@@ -29,7 +31,8 @@ define([
            'adp.mobile.weatherReportModule',
            'adp.mobile.contactsModule',
           'adp.mobile.eventsModule',
-          'adp.mobile.newsModule'
+          'adp.mobile.newsModule',
+          'adp.mobile.mapsModule'
       ]);
 
       var bootstrap = function (app) {

@@ -94,6 +94,15 @@ define(['angular','ui-router'], function(angular) {
                             controller: 'adp.mobile.controllers.newsController'
                         }
                     }
+                })
+                .state('app.map',{
+                    url:"/map",
+                    views:{
+                        'menuContent':{
+                            templateUrl:'js/src/modules/map/templates/map.html',
+                            controller: 'adp.mobile.controllers.mapsController'
+                        }
+                    }
                 });
 
             // if none of the above states are matched, use this as the fallback
