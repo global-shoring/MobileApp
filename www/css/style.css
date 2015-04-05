@@ -23,7 +23,57 @@ background-color:rgb(201, 10, 10)
 .tile-container {
     padding: 1%;
 }
-#map {
+.padding10 {
+    padding: 1%;
+}
+.weather-container {
+    background: url('../img/blue-sea-horizon.jpg') no-repeat;
+     padding: 1%;
+}
+.weather-container h1, h2, h3, h4, h5, h6 ,span{
+     color: white !important;
+}
+
+
+
+.weather-detail {
+    background-color: rgba(0, 0, 0, 0.43);
+    padding: 5px;
+    margin: 10px;
+    border-radius: 4px;
+}
+.weather-detail .col {
+    padding: 2px;
+}
+.weather-icons {
+    background: url('../img/weather-2.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}
+.partly-cloudy {
+    background-position: -254px -134px;
+}
+
+.mostly-sunny {
+    background-position: -254px -134px;
+}
+
+.partly-cloudy {
+    background-position: -254px -134px;
+}
+
+.partly-cloudy {
+    background-position: -254px -134px;
+}
+.partly-cloudy {
+    background-position: -254px -134px;
+}
+.partly-cloudy {
+    background-position: -254px -134px;
+}
+.temp {
+    font-size: 50px;
+}#map {
     width: 100%;
     height: 100%;
 }

@@ -4,15 +4,15 @@
             <div class="row">
                 <div class="col adp-tiles-lg" ng-click="navigateToView('weatherReport')">
                     <div class="row">
-                        <div class="col"> Humidity:{{weatherReportSummary.humidity}}%</div>
-                        <div class="col">Temp:{{weatherReportSummary.temperature.current- 273.15 | number:1}}&deg;C</div>
+                        <div class="col"> Humidity:{{weatherReportData.weather.humidity}}%</div>
+                        <div class="col">Temp:{{((weatherReportData.weather.condition.temp - 32) * 5/9) | number:1}}&nbsp;&deg;C</div>
                     </div>
                     <div class="row">
-                        <div class="col"> Wind:{{weatherReportSummary.wind*3.6}} KM/Hrs</div>
-                        <div class="col"> {{weatherReportSummary.description}}</div>
+                        <div class="col"> Wind:{{weatherReportData.weather.wind.speed*3.6}} KM/Hr</div>
+                        <div class="col"><span class="row weather-icons partly-cloudy"></span><span>{{weatherReportData.weather.condition.text}}</span> </div>
                     </div>
                     <div class="row">
-                        <div class="col"> Pressure:{{weatherReportSummary.pressure}} hPa</div>
+                        <div class="col"> Pressure:{{weatherReportData.weather.pressure}} hPa</div>
                     </div>
                 </div>
             </div>

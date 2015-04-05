@@ -9,13 +9,13 @@ define([], function () {
             $location.path(viewName);
         }
 
-        weatherReportService.getWeatherReport().then(function (result) {
-            if (result) {
-                $scope.weatherReportSummary = result;
-            }
-        }, function (parameters) {
+        $scope.getWeatherForLocation = function () {
+            weatherReportService.getWeatherForLocation().then(function (results) {
+                $scope.weatherReportData = results;
+            });
+        };
 
-        });
+        $scope.getWeatherForLocation();
 
     };
     locationController.inject = ['$scope', '$location', 'adp.mobile.services.weatherReportService'];

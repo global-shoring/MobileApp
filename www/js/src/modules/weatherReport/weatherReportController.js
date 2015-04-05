@@ -4,20 +4,38 @@
 
 'use strict';
 define([], function () {
-    var weatherReportController = function ($scope, $state, weatherReportService) {
+    var weatherReportController = function ($scope, $state, weatherReportService, yahooWeatherService) {
         var self = this;
+        
+        $scope.getWeatherForLocation = function () {
+            weatherReportService.getWeatherForLocation().then(function (results) {
+                $scope.weatherReportData = results;
+            });
+        };
 
-        weatherReportService.getWeatherReport().then(function (result) {
-            debugger;
-            $scope.locationData = result.location;
-            $scope.weatherReportData = result.forecast[0];
-            $scope.weatherforecastData = result.forecast;
-        }, function (parameters) {
+        $scope.getWeatherForLocation();
+        //weatherReportService.getWeatherReport().then(function (result) {
+        //    debugger;
+        //    $scope.locationData = result.location;
+        //    $scope.weatherReportData = result.forecast[0];
+        //    $scope.weatherforecastData = result.forecast;
+        //}, function (parameters) {
 
-        });
+        //});
+
+        //weatherReportService.getYahooWeatherReport().then(function (result) {
+        //    debugger;
+        //    $scope.locationData = result.location;
+        //    $scope.weatherReportData = result.forecast[0];
+        //    $scope.weatherforecastData = result.forecast;
+        //}, function (parameters) {
+
+        //});
+
     };
 
-    weatherReportController.inject = ['$scope', '$state', 'adp.mobile.services.weatherReportService'];
+    weatherReportController.inject = ['$scope', '$state',
+        'adp.mobile.services.weatherReportService'];
 
     return weatherReportController;
 });
