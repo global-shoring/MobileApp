@@ -1,28 +1,28 @@
 ﻿<ion-view view-title="Dashboard">
-    <ion-content class="span12">
-        <ion-list>
-            <ion-item class="span6" ng-repeat="tile in tiles" >
-                <div class="item" style="background-color:{{tile.bgColor}}" ng-click="navigateToLocationView(tile.location)">
-                    <div class="span12">
+    <ion-content>
+        <div class="row unlimited-items">
+            <div class="col" ng-repeat="tile in tiles">
+                <div class="adp-tiles-lg" style="background-color:{{tile.bgColor}}" ng-click="navigateToLocationView(tile.location)">
+                    <div class="padding10">
                         <span>Location:</span>
                         <span>{{tile.location}}</span>
-                    </div>
-                    <div class="span12">
-                        <div class="span12 ">
-                            <span>Capacity:</span>
-                            <span>{{tile.capacity}}</span>
-                        </div>
-                        <div class="span12">
-                            <span>Occupied:</span>
-                            <span>{{tile.occupied}}</span>
-                        </div>
-                        <div class="span12">
-                            <span>Empty:</span>
-                            <span>{{tile.empty}}</span>
+                        <div class="">
+                            <div class=" ">
+                                <span>Capacity:</span>
+                                <span>{{tile.capacity}}</span>
+                            </div>
+                            <div class="">
+                                <span>Occupied:</span>
+                                <span>{{tile.occupied}}</span>
+                            </div>
+                            <div class="">
+                                <span>Empty:</span>
+                                <span>{{tile.empty}}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </ion-item>
-        </ion-list>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

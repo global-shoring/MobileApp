@@ -81,3 +81,12 @@ background-color:rgb(201, 10, 10)
 .scroll {
     height: 100%;
 }
+
+.row.unlimited-items {
+  flex-wrap: wrap;
+}
+
+.row.unlimited-items .col{
+  flex: none;
+  width: 50%;
+}

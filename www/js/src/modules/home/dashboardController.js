@@ -11,15 +11,39 @@ define(['require'],
 
 
             $scope.tiles = [{
-                location: 'Hyderabad',
+                location: 'Hyderabad F9',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor:'#cccccc'
             }, {
-                location: 'Pune ',
+                location: 'Hyderabad LCC ',
                 capacity: 100,
                 occupied: 20, 
+                empty: 80,
+                bgColor: '#abc34d'
+            }, {
+                location: 'Pune',
+                capacity: 100,
+                occupied: 20,
+                empty: 80,
+                bgColor: '#dddfcc'
+            }, {
+                location: 'Pune',
+                capacity: 100,
+                occupied: 20,
+                empty: 80,
+                bgColor: '#aa44aa'
+            }, {
+                location: 'Hyderabad',
+                capacity: 100,
+                occupied: 20,
+                empty: 80,
+                bgColor: '#cccccc'
+            }, {
+                location: '',
+                capacity: 100,
+                occupied: 20,
                 empty: 80,
                 bgColor: '#abc34d'
             }, {
