@@ -5,11 +5,14 @@
 'use strict';
 
 define([], function () {
-    var userContext = function (serviceConstants) {
+    var userContext = function ($rootScope,serviceConstants) {
         var self = this;
                 
+        self.getUserInfo = function() {
+            return $rootScope.isUserAuthenticated;
+        }
     };
 
-    userContext.$inject = ['adp.mobile.constants.serviceConstants'];
+    userContext.$inject = ['$rootScope','adp.mobile.constants.serviceConstants'];
     return userContext;
 });

@@ -90,3 +90,8 @@ background-color:rgb(201, 10, 10)
   flex: none;
   width: 50%;
 }
+.adp-logo {
+     background: url('../img/adp-logo.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}
