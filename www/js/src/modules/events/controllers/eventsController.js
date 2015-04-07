@@ -7,6 +7,7 @@
 
 define([], function () {
     var eventsController = function ($scope, $state , $location) {
+        $scope.collapse = false;
         $scope.events = [{
             "name": "Company day",
             "registration": {"startDate": "02-04-2015", "endDate": "03-04-2015"},
@@ -20,6 +21,9 @@ define([], function () {
 
         $scope.navigateToView = function(viewName) {
             $location.path(viewName);
+        }
+        $scope.expand= function(){
+            $scope.collapse = !$scope.collapse;
         }
     };
 
