@@ -86,6 +86,14 @@ define(['angular','ui-router'], function(angular) {
                             controller: 'adp.mobile.controllers.eventsController'
                         }
                     }
+                }).state('app.eventDetails', {
+                    url: "/eventDetails",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "js/src/modules/events/templates/eventDetails.html",
+                            controller: 'adp.mobile.controllers.eventDetailsController'
+                        }
+                    }
                 }).state('app.news', {
                     url: "/news",
                     views: {

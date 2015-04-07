@@ -6,6 +6,7 @@
 define([], function () {
     var locationController = function ($scope, $location, weatherReportService) {
         $scope.navigateToView = function(viewName) {
+            alert(viewName);
             $location.path(viewName);
         }
 

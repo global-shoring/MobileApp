@@ -1,12 +1,10 @@
 /**
- * Created by Janardhan on 03-04-2015.
+ * Created by ravadaj on 06/04/15.
  */
 
-
 'use strict';
-
-define([], function () {
-    var eventsController = function ($scope, $state , $location) {
+define([],function(){
+    var eventDetailsController = function($scope, $state){
         $scope.events = [{
             "name": "Company day",
             "registration": {"startDate": "02-04-2015", "endDate": "03-04-2015"},
@@ -18,12 +16,7 @@ define([], function () {
                 "eventDate": "12-12-2015"
             }];
 
-        $scope.navigateToView = function(viewName) {
-            $location.path(viewName);
-        }
     };
-
-
-    eventsController.inject = ['$scope', '$state', '$location'];
-    return eventsController;
+    eventDetailsController.inject = ['$scope', '$state'];
+    return eventDetailsController;
 });

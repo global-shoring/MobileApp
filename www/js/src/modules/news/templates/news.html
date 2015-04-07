@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-news
-</body>
-</html>
+<ion-view view-title="News">
+    <ion-content class="span12">
+        <ion-list>
+            <ion-item ng-repeat="item in items">
+                Hello, {{item}}!
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

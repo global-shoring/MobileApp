@@ -5,7 +5,7 @@
         </label>
         <ion-list>
             <ion-item ng-repeat="event in events">
-                {{event.name}}
+               <div ng-click="navigateToView('eventDetails')">{{event.name}}</div>
             </ion-item>
         </ion-list>
     </ion-content>
