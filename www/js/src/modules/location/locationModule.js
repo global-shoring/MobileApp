@@ -8,6 +8,6 @@ define(['angular',
     function (angular, locationController, locationDetailsController) {
 
     return angular.module('adp.mobile.locationModule',[])
-        .controller('adp.mobile.controllers.locationController', ['$scope', '$location', 'adp.mobile.services.weatherReportService', locationController])
+        .controller('adp.mobile.controllers.locationController', ['$scope', '$state', '$location', 'adp.mobile.constants.controllerConstants', 'adp.mobile.services.weatherReportService', locationController])
         .controller('adp.mobile.controllers.locationDetailsController', locationDetailsController);
 });

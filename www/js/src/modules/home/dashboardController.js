@@ -11,49 +11,50 @@ define(['require'],
 
 
             $scope.tiles = [{
-                location: 'Hyderabad F9',
+                location: 'hyderabad',
+                text: 'Hyderabad',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor:'#cccccc'
-            }, {
-                location: 'Hyderabad LCC ',
-                capacity: 100,
-                occupied: 20, 
-                empty: 80,
-                bgColor: '#abc34d'
-            }, {
-                location: 'Pune',
+            },  {
+                location: 'pune',
+                text: 'Pune',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor: '#dddfcc'
             }, {
-                location: 'Pune',
+                location: 'manila',
+                text: 'Manila',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor: '#aa44aa'
             }, {
-                location: 'Hyderabad',
+                location: 'romania',
+                text: 'Romania',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor: '#cccccc'
             }, {
-                location: '',
+                location: 'elpaso',
+                text: 'El Paso',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor: '#abc34d'
             }, {
-                location: '',
+                location: 'augusta',
+                text: 'Augusta',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,
                 bgColor: '#dddfcc'
             }, {
-                location: '',
+                location: 'brazil',
+                text: 'Brazil',
                 capacity: 100,
                 occupied: 20,
                 empty: 80,

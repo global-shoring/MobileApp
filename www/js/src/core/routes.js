@@ -48,7 +48,7 @@ define(['angular','ui-router'], function(angular) {
                         }
                     }
                 }).state('app.location', {
-                    url: "/location",
+                    url: "/location?location=",
                     views: {
                         'menuContent': {
                             templateUrl: "js/src/modules/location/location.html",
@@ -72,7 +72,7 @@ define(['angular','ui-router'], function(angular) {
                         }
                     }
                 }).state('app.weatherReport', {
-                    url: "/weatherReport",
+                    url: "/weatherReport?location=",
                     views: {
                         'menuContent': {
                             templateUrl: "js/src/modules/weatherReport/weather-report.html",

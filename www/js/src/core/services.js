@@ -6,11 +6,12 @@
 
 define(['angular',
     '../services/apiUtilityService',   
+    '../services/locationService',
     '../services/userContext'
-], function (angular, apiUtilityService, userContext) {
-    
+], function (angular, apiUtilityService,locationService, userContext) {
     return {
         'adp.mobile.services.userContext': userContext,
-        'adp.mobile.services.apiUtilityService': apiUtilityService
+        'adp.mobile.services.apiUtilityService': apiUtilityService,
+        'adp.mobile.services.locationService': locationService
     }
 });
