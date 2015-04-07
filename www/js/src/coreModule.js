@@ -49,22 +49,20 @@ define([
               'adp.mobile.core.widgets'
       ]);
       
+     
 
       app.service('adp.mobile.services.httpInterceptorService', httpInterceptorService)
           .controller('adp.mobile.controllers.baseController', baseController)
-          .directive("loader", function ($rootScope) {
-              return function ($scope, element, attrs) {
-                  $scope.$on("loader_show", function () {
-                      return element.show();
-                  });
-                  return $scope.$on("loader_hide", function () {
-                      return element.hide();
-                  });
-              };
-          })
           .config(['$httpProvider', function ($httpProvider) {
               $httpProvider.interceptors.push('adp.mobile.services.httpInterceptorService');
           }]);
 
+      app.run(['adp.mobile.services.userContext','$location',
+           function (userContext, $location) {
+               debugger;
+               if (!userContext.getUserInfo()) {
+                   $location.path('login');
+               }
+           }]);
       return app;
   });

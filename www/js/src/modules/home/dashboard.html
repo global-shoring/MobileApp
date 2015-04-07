@@ -1,28 +1,41 @@
-﻿<ion-view view-title="Dashboard">
-    <ion-content>
-        <div class="row unlimited-items">
-            <div class="col" ng-repeat="tile in tiles">
-                <div class="adp-tiles-lg" style="background-color:{{tile.bgColor}}" ng-click="navigateToLocationView(tile.location)">
-                    <div class="padding10">
-                        <span>Location:</span>
-                        <span>{{tile.location}}</span>
-                        <div class="">
-                            <div class=" ">
-                                <span>Capacity:</span>
-                                <span>{{tile.capacity}}</span>
-                            </div>
+﻿<ion-nav-view class="row-fluid">
+    <ion-view view-title="Dashboard">
+        <ion-content>
+            <div class="list">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="text" placeholder="Search Associates">
+                    </label>
+                    <button class="button button button-positive button-small">
+                        Search
+                    </button>
+                </div>
+            </div>
+            <div class="row unlimited-items">
+                <div class="col" ng-repeat="tile in tiles">
+                    <div class="adp-tiles-lg" style="background-color:{{tile.bgColor}}" ng-click="navigateToLocationView(tile.location)">
+                        <div class="padding10">
+                            <span>Location:</span>
+                            <span>{{tile.location}}</span>
                             <div class="">
-                                <span>Occupied:</span>
-                                <span>{{tile.occupied}}</span>
-                            </div>
-                            <div class="">
-                                <span>Empty:</span>
-                                <span>{{tile.empty}}</span>
+                                <div class=" ">
+                                    <span>Capacity:</span>
+                                    <span>{{tile.capacity}}</span>
+                                </div>
+                                <div class="">
+                                    <span>Occupied:</span>
+                                    <span>{{tile.occupied}}</span>
+                                </div>
+                                <div class="">
+                                    <span>Empty:</span>
+                                    <span>{{tile.empty}}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </ion-content>
-</ion-view>
+        </ion-content>
+    </ion-view>
+</ion-nav-view>
+

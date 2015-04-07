@@ -30,20 +30,21 @@ define(['angular','ui-router'], function(angular) {
                     templateUrl: "js/src/templates/menu.html",
                     controller: 'adp.mobile.controllers.baseController'
                 })
+                .state('app.login', {
+                    url: "/login",
+                    views: {
+                        'menuContent': {
+                            templateUrl: "js/src/modules/login/templates/login.html",
+                            controller: 'adp.mobile.controllers.loginController'
+                        }
+                    }
+                })
                 .state('app.dashboard', {
                     url: "/dashboard",
                     views: {
                         'menuContent': {
                             templateUrl: "js/src/modules/home/dashboard.html",
                             controller: 'adp.mobile.controllers.dashboardController'
-                        }
-                    }
-                }).state('app.login', {
-                    url: "/login",
-                    views: {
-                        'menuContent': {
-                            templateUrl: "js/src/modules/login/templates/login.html",
-                            controller: 'adp.mobile.controllers.loginController'
                         }
                     }
                 }).state('app.location', {
