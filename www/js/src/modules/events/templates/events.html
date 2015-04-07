@@ -2,12 +2,13 @@
     <ion-content class="span12">
         <ion-list>
             <ion-item ng-repeat="event in events">
-                <div ng-click="expand()">{{event.name}}
-                    <div ng-show="collapse">Registration start date:{{event.registration.startDate}}<br>Registration start
-                        date:{{event.registration.endDate}}<br>Event date :{{event.eventDate}}
-                    </div>
+                <div ng-click="expand('{{event.name}}')">{{event.name}}
                 </div>
             </ion-item>
+
+            <div ng-show="collapse">Registration start date:{{single.startDate}}<br>Registration start
+                date:{{single.endDate}}<br>Event date :{{event.eventDate}}
+            </div>
         </ion-list>
     </ion-content>
 </ion-view>
