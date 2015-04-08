@@ -5,7 +5,7 @@
 define([],
     function () {
         return {
-            "googleGeoLocationEndPoint": "http://maps.googleapis.com/maps/api/geocode/json?&sensor=true&latlng=",
+            "googleGeoLocationApi": "googleGeoLocationApi",
             "httpVerb": { GET: "GET", POST: "POST", DELETE: "DELETE", PUT: "PUT" },
             'weatherReportApi': 'weatherReportApi',
             "weatherForecastApi":"weatherForecastApi",
@@ -21,6 +21,11 @@ define([],
                     "hostname": "localhost:8100",
                     "scheme": "http",
                     "pattern": "/weatherForecastApi"
+                },{
+                    "name": "googleGeoLocationApi",
+                    "hostname": "localhost:8100",
+                    "scheme": "http",
+                    "pattern": "/googleLocationApi"
                 }
             ]
         };

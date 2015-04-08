@@ -7,6 +7,7 @@ define([], function () {
     var weatherReportApiProxy = function ($http, $q, baseApiProxy, apiUtilityService, serviceConstants) {
         var self = this;
 
+        
         self.getWeatherReport = function (params) {
             var httpConfig = {
                 url: apiUtilityService.getApiUrlFromConfig(serviceConstants.weatherReportApi),
@@ -31,6 +32,7 @@ define([], function () {
 
         self.getWeatherForLocation= function(location) {
             var deferred = $q.defer();
+           
             $http.get("https://query.yahooapis.com/v1/public/yql?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + location + "')&format=json")
                 .success(function(data) {
                     deferred.resolve(data.query.results.channel);

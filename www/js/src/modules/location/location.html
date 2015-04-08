@@ -9,7 +9,7 @@
                     </div>
                     <div class="row">
                         <div class="col"> Wind:{{weatherReportData.weather.wind.speed*3.6}} KM/Hr</div>
-                        <div class="col"><span class="row weather-icons partly-cloudy"></span><span>{{weatherReportData.weather.condition.text}}</span> </div>
+                        <div class="col"><span class="row weather-icons {{weatherReportData.weather.conditionClass}}"></span><span>{{weatherReportData.weather.condition.text}}</span> </div>
                     </div>
                     <div class="row">
                         <div class="col"> Pressure:{{weatherReportData.weather.pressure}} hPa</div>
