@@ -1,3 +1,4 @@
+
 <ion-view view-title="Events">
     <ion-content class="span12">
         <ion-list>
@@ -11,7 +12,9 @@
                     {{event.name}}
                 </ion-item>
                 <div ng-show="event.active">
-                    {{event.registration.startDate}} - {{event.registration.endDate}}
+                    Registration start date:{{event.registration.startDate}}<br/>
+                    Registration end date:{{event.registration.endDate}}<br/>
+                    Event date :{{event.eventDate}}<br/>
                 </div>
             </div>
         </ion-list>
