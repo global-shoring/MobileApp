@@ -20,28 +20,11 @@ define([], function () {
 
         self.getWeatherForLocation = function (locationCoords) {
             var deferred = $q.defer();
-            var location = "";
 
             if (locationCoords) {
-                var url = serviceConstants.googleGeoLocationEndPoint + locationCoords.latitude + "," + locationCoords.longitude;
-
-                $.ajax({
-                    url: url,
-                    dataType: 'json',
-                    cache: true,
-                }).success(function (data) {
-                    if (data.results[0].address_components) {
-                        _.each(data.results[0].address_components, function(addressComp) {
-                            if (addressComp.types[0] === "locality") {
-                                location = addressComp.long_name;
-                            }
-                            if (addressComp.types[0] === "country") {
-                                location = location + ", " + addressComp.short_name;
-                            }
-                        });
-                    }
-                    weatherReportApiProxy.getWeatherForLocation(location).then(function (results) {
-                        deferred.resolve(weatherTranfromation(results));
+                locationService.getGeoLocationDetails(locationCoords).then(function (results) {
+                    weatherReportApiProxy.getWeatherForLocation(results).then(function (data) {
+                        deferred.resolve(weatherTranfromation(data));
                     }, function (error) {
                         deferred.reject(error);
                     });
@@ -52,6 +35,18 @@ define([], function () {
         };
 
         var weatherTranfromation = function (data) {
+            var forecastArr = [];
+            _.each(data.item.forecast, function (forecast) {
+                forecastArr.push({
+                    date: forecast.date,
+                    day: forecast.day,
+                    high: forecast.high,
+                    low: forecast.low,
+                    text: forecast.text,
+                    cssClass: forecast.text ? forecast.text.toLowerCase().replace('/','-').replace(' ', '-') : forecast.text.toLowerCase()
+                });
+            });
+
             var transformedResult = {
                 astronomy: data.astronomy,
                 location: data.location,
@@ -60,13 +55,15 @@ define([], function () {
                     lat: data.item.lat,
                     lon: data.item.long
                 },
-                forecast: data.item.forecast,
+                forecast: forecastArr,
                 units: data.units
             };
 
+           
 
             transformedResult.weather = {
                 condition: data.item.condition,
+                conditionClass: data.item.condition.text ? data.item.condition.text.toLowerCase().replace('/','-').replace(' ', '-') : data.item.condition.text.toLowerCase(),
                 tempMin: data.item.forecast[0].low,
                 tempMax: data.item.forecast[0].high,
                 humidity: data.atmosphere.humidity,
@@ -84,7 +81,8 @@ define([], function () {
         };
     };
 
-    weatherReportService.$inject = ['$q', 'adp.mobile.services.serviceConstants','adp.mobile.services.locationService',
+    weatherReportService.$inject = ['$q', 'adp.mobile.services.serviceConstants',
+        'adp.mobile.services.locationService',
         'adp.mobile.services.weatherReportApiProxy'];
 
     return weatherReportService;

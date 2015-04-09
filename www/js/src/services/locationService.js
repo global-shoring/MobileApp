@@ -5,7 +5,7 @@
 'use strict';
 
 define([], function () {
-    var locationService = function (serviceConstants) {
+    var locationService = function ($q,serviceConstants, commonApiProxy) {
         var self = this;
 
         self.getCurrentGeoLocation = function () {
@@ -20,8 +20,29 @@ define([], function () {
 
             return deferred.promise;
         }
+
+        self.getGeoLocationDetails = function (locationCoords) {
+            var deferred = $q.defer();
+            var location = "";
+           
+            commonApiProxy.getGeoLocationDetails(locationCoords).then(function (results) {
+                if (results[0].address_components) {
+                    _.each(results[0].address_components, function(addressComp) {
+                        if (addressComp.types[0] === "locality") {
+                            location = addressComp.long_name;
+                        }
+                        if (addressComp.types[0] === "country") {
+                            location = location + ", " + addressComp.short_name;
+                        }
+                    });
+                }
+                deferred.resolve(location);
+            });
+
+            return deferred.promise;
+        }
     };
 
-    locationService.$inject = ['adp.mobile.constants.serviceConstants'];
+    locationService.$inject = ['$q','adp.mobile.constants.serviceConstants', 'adp.mobile.services.commonApiProxy'];
     return locationService;
 });

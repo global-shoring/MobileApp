@@ -6,12 +6,14 @@
 
 define(['angular',  
         '../apiProxies/accountApiProxy',
+        '../apiProxies/commonApiProxy',
         '../apiProxies/weatherReportApiProxy'
 ],
-    function (angular, accountApiProxy, weatherReportApiProxy) {
+    function (angular, accountApiProxy,commonApiProxy, weatherReportApiProxy) {
 
         var proxies = {     
             'adp.mobile.services.accountApiProxy': accountApiProxy,
+            'adp.mobile.services.commonApiProxy': commonApiProxy,
             'adp.mobile.services.weatherReportApiProxy': weatherReportApiProxy
         };
 
