@@ -1,7 +1,9 @@
 
-define(['angular', 'src/modules/contacts/controllers/contactsController'],
-    function(angular, contactsController) {
+define(['angular', 'src/modules/contacts/controllers/contactsController',
+        'src/modules/contacts/services/contactsService'],
+    function(angular, contactsController, contactsService) {
 
         return angular.module('adp.mobile.contactsModule', [])
-            .controller('adp.mobile.controllers.contactsController', contactsController);
+            .service('adp.mobile.services.contactsService', contactsService)
+            .controller('adp.mobile.controllers.contactsController', ['$scope', '$state', '$stateParams','adp.mobile.services.contactsService', contactsController]);
     });

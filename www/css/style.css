@@ -127,3 +127,17 @@
     width: 40px;
     height: 40px;
 }
+
+.list {
+    clear: both;
+}
+
+.details {
+    padding: 0px 12px 20px 12px;
+}
+
+.details img {
+    float: left;
+    margin-right: 12px;
+}
+

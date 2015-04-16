@@ -64,10 +64,10 @@ define(['angular','ui-router'], function(angular) {
                         }
                     }
                 }).state('app.contacts', {
-                    url: "/contacts",
+                    url: "/contacts/:locationId",
                     views: {
                         'menuContent': {
-                            templateUrl: "js/src/modules/contacts/templates/contacts.html",
+                            templateUrl: "js/src/modules/contacts/templates/contact-detail.html",
                             controller: 'adp.mobile.controllers.contactsController'
                         }
                     }
