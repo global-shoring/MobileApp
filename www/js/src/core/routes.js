@@ -105,7 +105,7 @@ define(['angular','ui-router'], function(angular) {
                     }
                 })
                 .state('app.map',{
-                    url:"/map",
+                    url:"/map?location=",
                     views:{
                         'menuContent':{
                             templateUrl:'js/src/modules/map/templates/map.html',

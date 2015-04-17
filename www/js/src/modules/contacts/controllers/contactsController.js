@@ -2,7 +2,7 @@
 'use strict';
 define([], function() {
 
-    var contactsController = function($scope, $state, $stateParams, contactsService) {
+    var contactsController = function($scope, $state, $stateParams) {//, contactsService) {
         $scope.contacts = [
             {
                 locationId: 1,
@@ -34,12 +34,12 @@ define([], function() {
 
         ];
 
-        contactsService.findById($stateParams.locationId).then(function(contact) {
-            $scope.contact = contact;
-        });
+        //contactsService.findById($stateParams.locationId).then(function(contact) {
+        //    $scope.contact = contact;
+        //});
 
     };
 
-    contactsController.inject = ['$scope', '$state', '$stateParams', 'adp.mobile.services.contactsService'];
+    contactsController.inject = ['$scope', '$state', '$stateParams']//, 'adp.mobile.services.contactsService'];
     return contactsController;
 });

@@ -5,48 +5,49 @@
 'use strict';
 define([], function () {
 
-    var mapsController = function ($scope, $ionicLoading, $q, $compile, mapsService, controllerConstants) {
+    var mapsController = function ($scope, $state, controllerConstants) {
+        $scope.location = $state.params.location;
+        var bounds = new google.maps.LatLngBounds();
 
-        function initialize() {
+        $scope.initialize = function (location) {
 
-            var mapOptions = {
-                zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
+            var locationDetails = [];
+            if (location) {
+                _.find(controllerConstants.adpLocations, function (item) {
+                    if (item.location === location.toLowerCase()) {
+                        locationDetails.push(item);
+                    }
+                    return null;
+                });
+            }
 
-            var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
-            var compiled = $compile(contentString)($scope);
+            angular.forEach(locationDetails, function (locationDetail) {
 
-            var infowindow = new google.maps.InfoWindow({
-                content:controllerConstants.adpHydAddress
+                var infoWindow = new google.maps.InfoWindow({
+                    content: locationDetail.fullAddress,
+                    disableAutoPan: true
+                });
+
+                var latlang = new google.maps.LatLng(locationDetail.coords.latitude, locationDetail.coords.longitude);
+                var marker = new google.maps.Marker({
+                    map: $scope.map,
+                    title: 'Location',
+                    position: latlang
+                });
+
+                google.maps.event.addListener(marker, 'mouseover', function () {
+                    infoWindow.open($scope.map, marker);
+                });
+
+                google.maps.event.addListener(marker, 'mouseout', function () {
+                    infoWindow.close();
+                });
+                bounds.extend(marker.position);
+
             });
-
-            $scope.map = new google.maps.Map(document.getElementById("map"),
-                mapOptions);
-
-
-            var marker = new google.maps.Marker({
-                map: $scope.map,
-                title: 'Gmap'
-            });
-
-            google.maps.event.addListener(marker, 'click', function () {
-                infowindow.open($scope.map, marker);
-            });
-
-            navigator.geolocation.getCurrentPosition(function (pos) {
-                var latlang = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude)
-                $scope.map.setCenter(latlang);
-                marker.setPosition(latlang);
-                //$scope.loading.hide();
-            }, function (error) {
-                alert('Unable to get location: ' + error.message);
-            });
+            $scope.map.fitBounds(bounds);
         }
-
-        initialize();
     };
-    mapsController.inject = ['$scope', '$ionicLoading', '$q',
-        '$compile', 'adp.mobile.services.mapsService', 'adp.mobile.constants.controllerConstants'];
+    mapsController.inject = ['$scope', '$state', 'adp.mobile.constants.controllerConstants'];
     return mapsController;
 });
