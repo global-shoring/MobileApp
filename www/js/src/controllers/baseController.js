@@ -7,16 +7,18 @@ define(['require'],
     function (require) {
         'use strict';
         require([]);
-        var baseController = function ($rootScope, $scope, $location, userContext) {
+        var baseController = function ($rootScope, $scope, $location, userContextService) {
 
             $rootScope.$on('userAuthentication', function(x , y) {
                 $scope.isUserAuthenticated = y;
             });
 
-            $scope.userLogoff = function () {
+            $scope.userContext = userContextService.getUserInfo();
+
+            $scope.userLogoff = function() {
                 $scope.isUserAuthenticated = null;
                 $location.path('login');
-            }
+            };
 
             $scope.navigateToView = function(viewName) {
                 $location.path('login');
@@ -24,7 +26,7 @@ define(['require'],
 
         };
 
-        baseController.$inject = ['$rootScope', '$scope', '$location'];
+        baseController.$inject = ['$rootScope', '$scope', '$location','adp.mobile.services.userContext'];
 
         return baseController;
     });

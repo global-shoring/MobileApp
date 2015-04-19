@@ -60,7 +60,7 @@ define([
       app.run(['adp.mobile.services.userContext','$location',
            function (userContext, $location) {
                if (!userContext.getUserInfo()) {
-                   $location.path('login');
+                   //$location.path('login');
                }
            }]);
       return app;

@@ -20,23 +20,19 @@ define([], function () {
                 "eventDate": "12-12-2015"
             }];
 
-        $scope.expand= function(eventName){
+        $scope.expand = function(eventName) {
             $scope.collapse = !$scope.collapse;
-            $scope.events.forEach(function (event) {
-                alert("from loop "+event.name);
-                alert("from page " + eventName);
-                alert(eventName == event.name);
-                if(eventName = event.name){
+            $scope.events.forEach(function(event) {
+                if (eventName = event.name) {
                     $scope.singleEvent = event;
-                    alert($scope.singleEvent.endDate);
-                   /* $scope.singleEvent.startDate = event.registration.startDate;
+                    /* $scope.singleEvent.startDate = event.registration.startDate;
                     alert("from loop "+event.registration.startDate);
                     alert("start "+singleEvent.startDate);
                     $scope.singleEvent.endDate = event.registration.endDate;
                     $scope.singleEvent.eventDate = event.eventDate;*/
                 }
-            })
-        }
+            });
+        };
     };
 
 

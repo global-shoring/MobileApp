@@ -8,7 +8,7 @@ define([], function () {
         $scope.navigateToView = function(viewName) {
             //alert(viewName);
             $location.path(viewName);
-        }
+        };
 
         $scope.getWeatherForLocation = function () {
             var location = $state.params.location;

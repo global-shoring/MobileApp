@@ -5,14 +5,19 @@
 'use strict';
 
 define([], function () {
-    var userContext = function ($rootScope,serviceConstants) {
+    var userContext = function ($rootScope, commonApiProxy) {
         var self = this;
-                
+
         self.getUserInfo = function() {
-            return $rootScope.isUserAuthenticated;
-        }
+            var userinfo = null;
+            commonApiProxy.getUserContext().then(function(result) {
+                userinfo = result;
+            });
+            return userinfo;
+        };
     };
 
-    userContext.$inject = ['$rootScope','adp.mobile.constants.serviceConstants'];
+    userContext.$inject = ['$rootScope', 'adp.mobile.services.commonApiProxy'];
+
     return userContext;
 });

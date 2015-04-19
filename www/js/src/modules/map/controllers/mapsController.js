@@ -11,36 +11,36 @@ define([], function () {
 
             var mapOptions = {
                 zoom: 16,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
+                mapTypeId: window.google.maps.MapTypeId.ROADMAP
             };
 
             var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
             var compiled = $compile(contentString)($scope);
 
-            var infowindow = new google.maps.InfoWindow({
+            var infowindow = new window.google.maps.InfoWindow({
                 content:controllerConstants.adpHydAddress
             });
 
-            $scope.map = new google.maps.Map(document.getElementById("map"),
+            $scope.map = new window.google.maps.Map(document.getElementById("map"),
                 mapOptions);
 
 
-            var marker = new google.maps.Marker({
+            var marker = new window.google.maps.Marker({
                 map: $scope.map,
                 title: 'Gmap'
             });
 
-            google.maps.event.addListener(marker, 'click', function () {
+            window.google.maps.event.addListener(marker, 'click', function () {
                 infowindow.open($scope.map, marker);
             });
 
-            navigator.geolocation.getCurrentPosition(function (pos) {
-                var latlang = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude)
+            window.navigator.geolocation.getCurrentPosition(function (pos) {
+                var latlang = new window.google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                 $scope.map.setCenter(latlang);
                 marker.setPosition(latlang);
                 //$scope.loading.hide();
             }, function (error) {
-                alert('Unable to get location: ' + error.message);
+                window.alert('Unable to get location: ' + error.message);
             });
         }
 

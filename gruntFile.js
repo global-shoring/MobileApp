@@ -3,10 +3,7 @@ module.exports = function (grunt) {
 
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
-
-    // Default task.
-    grunt.registerTask('default', ['jshint', 'karma']);
-
+    
     var testConfig = function (configFile, customOptions) {
         var options = { configFile: configFile, keepalive: true };
         var travisOptions = process.env.TRAVIS && { browsers: ['chrome'], reporters: 'dots' };
@@ -21,7 +18,9 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-            files: ['www/js/src/**/*.js', 'www/js/test/**/*.js'],
+            files: ['www/js/src/**/*.js',
+                'server/**/*.js',
+                'www/js/test/**/*.js'],
             options: {
                 "curly": true,
                 "eqeqeq": true,
@@ -60,13 +59,38 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            jshint: {
-                files: ['www/js/src/**/*.js', 'www/js/test/**/*.js'],
+            scripts: {
+                files: ['www/js/src/**/*.js',
+                'server/**/*.js',
+                'www/js/test/**/*.js'],
                 tasks: ['jshint'],
                 options: {
-                    interrupt: true
+                    spawn: false,
+                },
+            },
+            options: {
+                livereload: true
+            }
+        },
+        express: {
+            dev: {
+                options: {
+                    script: 'server.js'
                 }
             }
-        }
+        },
+        open: {
+            dev: {
+                path: 'http://localhost:3000/'
+            }
+        },
     });
+
+    // Default task.
+    grunt.registerTask('default', ['express:dev', 'open:dev', "express-keepalive"]);
+    grunt.registerTask('dev', ['jshint', 'karma']);
+    grunt.registerTask('watch', ['watch']);
+
+    grunt.loadNpmTasks('grunt-express-server');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 };

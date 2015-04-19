@@ -61,9 +61,9 @@ define(['require'],
                 bgColor: '#aa44aa'
             }];
 
-            $scope.navigateToLocationView  = function(whichLocation) {
+            $scope.navigateToLocationView = function(whichLocation) {
                 $location.path('location').search('location', whichLocation);
-            }
+            };
         };
 
         

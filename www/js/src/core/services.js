@@ -13,5 +13,5 @@ define(['angular',
         'adp.mobile.services.userContext': userContext,
         'adp.mobile.services.apiUtilityService': apiUtilityService,
         'adp.mobile.services.locationService': locationService
-    }
+    };
 });

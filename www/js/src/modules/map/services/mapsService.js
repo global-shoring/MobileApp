@@ -5,27 +5,27 @@
 define([],function(){
 
 
-    var mapsService = function($q){
+    var mapsService = function($q) {
 
-        var getLatLang = function(){
-            return getGeoLocation().then(function(positon){
+        var getLatLang = function() {
+            return getGeoLocation().then(function(positon) {
 
-                console.log('latitude '+ positon.coords.latitude);
-                console.log('langitude '+ positon.coords.longitude);
+                console.log('latitude ' + positon.coords.latitude);
+                console.log('langitude ' + positon.coords.longitude);
 
-                var myLatlng = new google.maps.LatLng(positon.coords.latitude,positon.coords.longitude);
+                var myLatlng = new window.google.maps.LatLng(positon.coords.latitude, positon.coords.longitude);
 
                 return myLatlng;
             });
-        }
+        };
 
         var getGeoLocation = function(){
          var deferred = $q.defer();
-            if(navigator.geolocation){
+         if (window.navigator.geolocation) {
                 console.log('inside if');
-                navigator.geolocation.getCurrentPosition(function(result){
+                window.navigator.geolocation.getCurrentPosition(function (result) {
                    deferred.resolve(result);
-                }, function(erro){
+                }, function (error) {
                     deferred.reject(error);
                 });
             }

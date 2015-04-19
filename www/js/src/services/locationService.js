@@ -8,24 +8,24 @@ define([], function () {
     var locationService = function ($q,serviceConstants, commonApiProxy) {
         var self = this;
 
-        self.getCurrentGeoLocation = function () {
+        self.getCurrentGeoLocation = function() {
             var deferred = $q.defer();
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function (result) {
+            if (window.navigator.geolocation) {
+                window.navigator.geolocation.getCurrentPosition(function (result) {
                     deferred.resolve(result);
-                }, function (error) {
+                }, function(error) {
                     deferred.reject(error);
                 });
             }
 
             return deferred.promise;
-        }
+        };
 
-        self.getGeoLocationDetails = function (locationCoords) {
+        self.getGeoLocationDetails = function(locationCoords) {
             var deferred = $q.defer();
             var location = "";
-           
-            commonApiProxy.getGeoLocationDetails(locationCoords).then(function (results) {
+
+            commonApiProxy.getGeoLocationDetails(locationCoords).then(function(results) {
                 if (results[0].address_components) {
                     _.each(results[0].address_components, function(addressComp) {
                         if (addressComp.types[0] === "locality") {
@@ -40,7 +40,7 @@ define([], function () {
             });
 
             return deferred.promise;
-        }
+        };
     };
 
     locationService.$inject = ['$q','adp.mobile.constants.serviceConstants', 'adp.mobile.services.commonApiProxy'];

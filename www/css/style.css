@@ -8,8 +8,16 @@
 
 .adp-footer {
     background-color: rgb(201, 10, 10);
+   
 }
-
+.adp-tabs .tabs, .tabs.tabs-positive {
+ border-color: rgb(201, 10, 10);
+ background-color: rgb(201, 10, 10);
+ background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%); 
+ color: #fff; 
+ position: absolute;
+    bottom: 0px;
+}
 .adp-tiles-sm {
     margin: 1% !important;
     height: 150px;
@@ -117,10 +125,10 @@
     flex-wrap: wrap;
 }
 
-    .row.unlimited-items .col {
-        flex: none;
-        width: 50%;
-    }
+.row.unlimited-items .col {
+    flex: none;
+    width: 50%;
+}
 
 .adp-logo {
     background: url('../img/adp-logo.png') no-repeat;
