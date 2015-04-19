@@ -1,22 +1,33 @@
-<ion-view view-title="Login">
-    <ion-content>
-        <div class="list">
-            <label class="item item-input">
-                <span class="input-label">Username</span>
-                <input type="text" ng-model="user.username">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Password</span>
-                <input type="password" ng-model="user.password">
-            </label>
-        </div>
-        <div class="padding">
-            <button class="button button-block button-positive" ng-click="userLogin()">
-                Sign-In
-            </button>
-            <p class="text-center">
-                <a href="#/forgot-password">Forgot password</a>
-            </p>
-        </div>
+<ion-view view-title="Sign-In">
+    <ion-content class="padding">
+        <form name="loginForm" novalidate="" ng-submit="userLogin(loginForm.$valid)">
+
+            <div class="list">
+                <label class="item item-input"
+                       ng-class="{ 'has-error' : loginForm.username.$invalid && loginForm.$submitted}">
+                    <input type="text"
+                           name="username"
+                           placeholder="Username"
+                           ng-model="user.username"
+                           required>
+                </label>
+
+                <label class="item item-input"
+                       ng-class="{ 'has-error' : loginForm.password.$invalid && loginForm.$submitted}">
+                    <input type="password"
+                           name="password"
+                           placeholder = "Password"
+                           ng-model="user.password"
+                           required>
+                </label>
+            </div>
+            <div class="padding">
+                <button type= "submit" class="button button-block button-positive">
+                    Login
+                </button>
+
+            </div>
+
+        </form>
     </ion-content>
 </ion-view>

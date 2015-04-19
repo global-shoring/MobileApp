@@ -9,6 +9,8 @@ define(['require'],
         var dashboardController = function ($rootScope, $scope, $q, $location,
             userContext, serviceConstants,  controllerConstants) {
 
+            //Test log to know user object is navigating or not
+            console.log('rootScope user dashboard: '+ JSON.stringify($rootScope.user));
 
             $scope.tiles = [{
                 location: 'hyderabad',

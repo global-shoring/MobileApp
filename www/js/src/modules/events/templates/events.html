@@ -1,13 +1,21 @@
+
 <ion-view view-title="Events">
     <ion-content class="span12">
         <ion-list>
-            <ion-item ng-repeat="event in events">
-                <div ng-click="expand('{{event.name}}')">{{event.name}}
-                </div>
-            </ion-item>
 
-            <div ng-show="collapse">Registration start date:{{single.startDate}}<br>Registration start
-                date:{{single.endDate}}<br>Event date :{{event.eventDate}}
+            <div ng-repeat="event in events">
+                <ion-item class="item-stable"
+                          ng-click="toggleEvents(event)"
+                          ng-class="{active: event.active}">
+                    <i class="icon" ng-class="event.active ? 'ion-minus' : 'ion-plus'"></i>
+                    &nbsp;
+                    {{event.name}}
+                </ion-item>
+                <div ng-show="event.active">
+                    Registration start date:{{event.registration.startDate}}<br/>
+                    Registration end date:{{event.registration.endDate}}<br/>
+                    Event date :{{event.eventDate}}<br/>
+                </div>
             </div>
         </ion-list>
     </ion-content>

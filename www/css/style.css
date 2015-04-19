@@ -44,11 +44,9 @@
     padding: 1%;
 }
 
-    .weather-container h1, h2, h3, h4, h5, h6, span {
-        color: white !important;
-    }
-
-
+.weather-container h1, h2, h3, h4, h5, h6, span {
+    color: white !important;
+}
 
 .weather-detail {
     background-color: rgba(0, 0, 0, 0.43);
@@ -57,9 +55,9 @@
     border-radius: 4px;
 }
 
-    .weather-detail .col {
-        padding: 2px;
-    }
+.weather-detail .col {
+    padding: 2px;
+}
 
 .weather-icons {
     background: url('../img/weather-1.png') no-repeat;
@@ -95,19 +93,22 @@
     background-position: -60px -144px;
 }
 
-.clear, .sunny , .fair  {
-    background-position:-60px -33px;
+.clear, .sunny, .fair {
+    background-position: -60px -33px;
 }
+
 .mostly-sunny-wind {
-   background-position: -193px -201px
+    background-position: -193px -201px
 }
 
 .am-clouds-pm {
-   background-position: -252px -30px
+    background-position: -252px -30px
 }
+
 .mostly-cloudy {
-  background-position: -188px -30px
+    background-position: -188px -30px
 }
+
 .temp {
     font-size: 50px;
 }
@@ -135,3 +136,24 @@
     width: 40px;
     height: 40px;
 }
+
+.list {
+    clear: both;
+}
+
+.details {
+    padding: 0px 12px 20px 12px;
+}
+
+.details img {
+    float: left;
+    margin-right: 12px;
+}
+
+label.item.has-error input {
+    border-color: #FA5858;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+
+
