@@ -67,7 +67,7 @@ define(['angular','ui-router'], function(angular) {
                     url: "/contacts/:locationId",
                     views: {
                         'menuContent': {
-                            templateUrl: "js/src/modules/contacts/templates/contacts.html",
+                            templateUrl: "js/src/modules/contacts/contacts.html",
                             controller: 'adp.mobile.controllers.contactsController'
                         }
                     }
