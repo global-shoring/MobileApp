@@ -12,7 +12,7 @@ define([], function () {
 
         adminService.getAdminDetails().then(function(results) {
             if (results) {
-                $scope.adminViewModel = result;
+                $scope.adminViewModel = results;
                 $scope.eventsList = results.events;
                 $scope.newsList = results.news;
             }
