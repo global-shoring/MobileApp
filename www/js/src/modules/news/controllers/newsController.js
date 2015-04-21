@@ -4,11 +4,13 @@
 
 'use strict';
 define([],function(){
-    var newsController = function($scope, $state){
-        $scope.items = ['Chennai','Hyderabad','Banglore','Mumbhai'];
+    var searchResultController = function ($scope, $state) {
+       
 
     };
-    newsController.inject = ['$scope', '$state'];
-    return newsController;
+
+    searchResultController.inject = ['$scope', '$state'];
+
+    return searchResultController;
 });
 

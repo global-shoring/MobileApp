@@ -45,15 +45,23 @@ MongoClient.connect(config.MONGODB_URL, function (err, db) {
     // Application routes
     routes(app, db);
 
-    // verify if database exists, if not create sample data.
-    var InitData = require('./server/data/initialData'),
-        initData = new InitData(db);
+  
 
     http.createServer(app).listen(app.get('port'), function () {
         console.log("Express server listening on port " + app.get('port'));
     });
 
-    initData.verifyData();
+    // verify if database exists, if not create sample data.
+    var InitData = require('./server/data/initialData'),
+        initData = new InitData(db);
+
+    initData.verifyData(function (error, success) {
+        if (error) {
+            logger.log('debug', 'error while verifying data' + error);
+        } else {
+            logger.log('debug', success);
+        }
+    });
 });
 
 

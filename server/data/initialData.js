@@ -1,37 +1,66 @@
 ﻿"use strict";
+/**
+ * Created by Ramesh on 04-22-2015.
+ */
+
+var logger = require('winston');
+
+var UserService = require('../services/users'),
+    AdminService = require('../services/admin'),
+    AssociateService = require('../services/associate');
 
 module.exports = function (db) {
-    var UserService = require('../services/users'),
-	    	userService = new UserService(db),
-            AdminService = require('../services/admin'),
-            adminService = new AdminService(db);
+    var userService = new UserService(db),
+        adminService = new AdminService(db),
+        associateService = new AssociateService(db);
 
-   this.verifyData = function (callback) {
+    this.verifyData = function (callback) {
+        logger.log('debug', 'verifying data from database..');
+
         userService.verifyData('rwalker', function (err, user) {
-            if (err) {console.log('ERROR: ' + err);}
+            logger.log('debug', 'verifying user data from database..');
+
+            if (err) { callback(err); }
 
             if (!user) {
-                userService.initUsers(function (err, res) {
-                    if (!err) {
-                        console.log('Initial data - USERS Inserting..');
+                userService.initUsers(function (error, res) {
+                    if (!error) {
+                        callback(null,'Initial data - USERS Inserting..');
                     }
                 });
             } else {
-                console.log('Initial data - USERS OK');
+                callback(null, 'Initial data - USERS OK');
             }
         });
 
         adminService.getAdminDetails('rwalker', function (err, admin) {
-            if (err) {console.log('ERROR: ' + err);}
+            logger.log('debug', 'verifying user admin from database..');
+            if (err) {callback('ERROR: ' + err);}
             
             if (!admin) {
                 adminService.initAdmins(function (err, res) {
                     if (!err) {
-                        console.log('Initial data - ADMIN Inserting..');
+                        callback(null, 'Initial data - ADMIN Inserting..');
                     }
                 });
             } else {
-                console.log('Initial data - ADMIN OK');
+                callback(null, 'Initial data - ADMIN OK');
+            }
+        });
+
+        associateService.getAssociate('rwalker', function (err, admin) {
+            logger.log('debug', 'verifying associate data from database..');
+
+            if (err) { callback('ERROR: ' + err); }
+
+            if (!admin) {
+                associateService.initAssociates(function (err, res) {
+                    if (!err) {
+                        callback(null, 'Initial data - Associate Inserting..');
+                    }
+                });
+            } else {
+                callback(null, 'Initial data - Associate OK');
             }
         });
     };

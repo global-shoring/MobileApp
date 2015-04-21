@@ -18,7 +18,8 @@ define([
    './modules/events/eventsModule',
    './modules/news/newsModule',
    './modules/map/mapsModule',
-   './modules/admin/adminModule'
+   './modules/admin/adminModule',
+   './modules/search/searchModule'
 
 ],
   function (angular, Q, $) {
@@ -34,7 +35,8 @@ define([
           'adp.mobile.eventsModule',
           'adp.mobile.newsModule',
           'adp.mobile.mapsModule',
-          'adp.mobile.adminModule'
+          'adp.mobile.adminModule',
+          'adp.mobile.searchModule'
       ]);
 
       var bootstrap = function (app) {

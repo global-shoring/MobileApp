@@ -12,13 +12,18 @@ define([],
             "userInfoApi": "userInfoApi",
             "adminDetailsApi": "adminDetailsApi",
             "postAdminInfoApi": "postAdminInfoApi",
-
+            "associateSearchApi":"associateSearchApi",
             "httpMappings": [{
                 "name": "userInfoApi",
                 "hostname": "localhost:3000",
                 "scheme": "http",
                 "pattern": "/api/user"
-            },{
+            }, {
+                "name": "associateSearchApi",
+                "hostname": "localhost:3000",
+                "scheme": "http",
+                "pattern": "/api/associates"
+            }, {
                 "name": "adminDetailsApi",
                 "hostname": "localhost:3000",
                 "scheme": "http",

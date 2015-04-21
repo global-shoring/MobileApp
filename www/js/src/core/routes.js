@@ -87,14 +87,6 @@ define(['angular','ui-router'], function(angular) {
                             controller: 'adp.mobile.controllers.eventsController'
                         }
                     }
-                }).state('app.eventDetails', {
-                    url: "/eventDetails",
-                    views: {
-                        'menuContent': {
-                            templateUrl: "js/src/modules/events/templates/eventDetails.html",
-                            controller: 'adp.mobile.controllers.eventDetailsController'
-                        }
-                    }
                 }).state('app.news', {
                     url: "/news",
                     views: {
@@ -119,6 +111,14 @@ define(['angular','ui-router'], function(angular) {
                         'menuContent': {
                             templateUrl: 'js/src/modules/admin/admin.html',
                             controller: 'adp.mobile.controllers.adminController'
+                        }
+                    }
+                }).state('app.associates', {
+                    url: "/associates",
+                    views: {
+                        'menuContent': {
+                            templateUrl: 'js/src/modules/search/search-result.html',
+                            controller: 'adp.mobile.controllers.searchResultController'
                         }
                     }
                 });
