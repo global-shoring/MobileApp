@@ -2,9 +2,6 @@
   "name": "mobileapp",
   "version": "1.0.0",
   "description": "MobileApp: An Ionic project",
-  "scripts": {
-    "start": "node ./server.js"
-  },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.12.3",
