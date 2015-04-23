@@ -1,0 +1,33 @@
+<ion-view view-title="Sign-In">
+    <ion-content class="padding">
+        <form name="loginForm" novalidate="" ng-submit="userLogin(loginForm.$valid)">
+
+            <div class="list">
+                <label class="item item-input"
+                       ng-class="{ 'has-error' : loginForm.username.$invalid && loginForm.$submitted}">
+                    <input type="text"
+                           name="username"
+                           placeholder="Username"
+                           ng-model="user.username"
+                           required>
+                </label>
+
+                <label class="item item-input"
+                       ng-class="{ 'has-error' : loginForm.password.$invalid && loginForm.$submitted}">
+                    <input type="password"
+                           name="password"
+                           placeholder = "Password"
+                           ng-model="user.password"
+                           required>
+                </label>
+            </div>
+            <div class="padding">
+                <button type= "submit" class="button button-block button-positive">
+                    Login
+                </button>
+
+            </div>
+
+        </form>
+    </ion-content>
+</ion-view>

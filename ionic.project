@@ -1,4 +1,16 @@
 {
-  "name": "MobileApp",
-  "app_id": ""
+    "name": "MobileApp",
+    "app_id": "",
+    "proxies": [{
+            "path": "/weatherApi",
+            "proxyUrl": "http://api.openweathermap.org/data/2.5/weather"
+        },
+        {
+            "path": "/weatherForecastApi",
+            "proxyUrl": "http://api.openweathermap.org/data/2.5/forecast"
+        },
+        {
+            "path": "/googleLocationApi",
+            "proxyUrl": "http://maps.googleapis.com/maps/api/geocode/json"
+        }]
 }

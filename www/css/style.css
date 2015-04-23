@@ -1,1 +1,159 @@
 /* Empty. Add your own CSS if you like */
+
+.adp-header {
+    background-color: rgb(201, 10, 10);
+    color: white;
+    font-weight: bold;
+}
+
+.adp-footer {
+    background-color: rgb(201, 10, 10);
+   
+}
+.adp-tabs .tabs, .tabs.tabs-positive {
+ border-color: rgb(201, 10, 10);
+ background-color: rgb(201, 10, 10);
+ background-image: linear-gradient(0deg, #0c63ee, #0c63ee 50%, transparent 50%); 
+ color: #fff; 
+ position: absolute;
+    bottom: 0px;
+}
+.adp-tiles-sm {
+    margin: 1% !important;
+    height: 150px;
+    width: 45%;
+    background-color: #cccccc;
+}
+
+.adp-tiles-lg {
+    margin: 10px !important;
+    height: 150px;
+    background-color: #ccc;
+}
+
+.tile-container {
+    padding: 1%;
+}
+
+.padding10 {
+    padding: 1%;
+}
+
+.weather-container {
+    background: url('../img/blue-sea-horizon.jpg') no-repeat;
+    padding: 1%;
+}
+
+.weather-container h1, h2, h3, h4, h5, h6, span {
+    color: white !important;
+}
+
+.weather-detail {
+    background-color: rgba(0, 0, 0, 0.43);
+    padding: 5px;
+    margin: 10px;
+    border-radius: 4px;
+}
+
+.weather-detail .col {
+    padding: 2px;
+}
+
+.weather-icons {
+    background: url('../img/weather-1.png') no-repeat;
+    width: 45px;
+    height: 40px;
+}
+
+.partly-cloudy {
+    background-position: -188px -134px;
+}
+
+.mostly-sunny {
+    background-position: -60px -33px;
+}
+
+.isolated-thunderstorms {
+    background-position: -254px -134px;
+}
+
+.pm-showers {
+    background-position: -125px -32px;
+}
+
+.scattered-thunderstorms {
+    background-position: -124px -89px;
+}
+
+.mostly-clear {
+    background-position: -60px -33px;
+}
+
+.am-thunderstorms, .pm-thunderstorms {
+    background-position: -60px -144px;
+}
+
+.clear, .sunny, .fair {
+    background-position: -60px -33px;
+}
+
+.mostly-sunny-wind {
+    background-position: -193px -201px
+}
+
+.am-clouds-pm {
+    background-position: -252px -30px
+}
+
+.mostly-cloudy {
+    background-position: -188px -30px
+}
+
+.temp {
+    font-size: 50px;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll {
+    height: 100%;
+}
+
+.row.unlimited-items {
+    flex-wrap: wrap;
+}
+
+.row.unlimited-items .col {
+    flex: none;
+    width: 50%;
+}
+
+.adp-logo {
+    background: url('../img/adp-logo.png') no-repeat;
+    width: 40px;
+    height: 40px;
+}
+
+.list {
+    clear: both;
+}
+
+.details {
+    padding: 0px 12px 20px 12px;
+}
+
+.details img {
+    float: left;
+    margin-right: 12px;
+}
+
+label.item.has-error input {
+    border-color: #FA5858;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+}
+
+
+

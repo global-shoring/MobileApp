@@ -1,0 +1,71 @@
+﻿<ion-view view-title="Admin">
+    <ion-content>
+        <div class="row">
+            <ion-tabs class="adp-tabs">
+                <ion-tab title="Events">
+                    <ion-list ng-hide="isEventFormVisible">
+                        <ion-item ng-repeat="event in eventsList">
+                            {{ event.title }}
+                        </ion-item>
+                    </ion-list>
+                    <div ng-hide="isEventFormVisible">
+                        <button class="button button-positive" ng-click="showEventForms()">Add Event</button>
+                    </div>
+                    <div class="col" ng-show="isEventFormVisible">
+                        <div class="row">
+                            <div>Please Enter Event Details</div>
+                        </div>
+                        <div class="row">
+                            <div><input type="text" placeholder="Enter Title" ng-model="event.Title" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="text" placeholder="Enter Description" ng-model="event.Description" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="datetime" placeholder="Start Date" ng-model="event.StartDate" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="datetime" placeholder="End Date" ng-model="event.EndDate" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="text" placeholder="Location" ng-model="event.Location" /></div>
+                        </div>
+                        <div class="row">
+                            <div><button ng-click="saveNewEvent()">Save</button></div>
+                        </div>
+                    </div>
+                </ion-tab>
+                <ion-tab title="News">
+                    <ion-list ng-hide="isNewsFormVisible">
+                        <ion-item ng-repeat="news in newsList">
+                            {{ news.headline }}
+                        </ion-item>
+                    </ion-list>
+                    <div ng-hide="isNewsFormVisible" class="">
+                        <button class="button button-positive" ng-click="showNewsForm()">Add News</button>
+                    </div>
+                    <div class="col" ng-show="isNewsFormVisible">
+                        <div class="row">
+                            <div>Please Enter News Details</div>
+                        </div>
+                        <div class="row">
+                            <div><input type="text" placeholder="Enter Title" ng-model="news.Headline" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="text" placeholder="Enter Description" ng-model="news.Description" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="datetime" placeholder="Start Date" ng-model="news.date" /></div>
+                        </div>
+                        <div class="row">
+                            <div><input type="text" placeholder="Location" ng-model="news.Location" /></div>
+                        </div>
+                        <div class="row">
+                            <div><button ng-click="saveNewNews()">Save</button></div>
+                        </div>
+                    </div>
+                </ion-tab>
+            </ion-tabs>
+        </div>
+    </ion-content>
+</ion-view>

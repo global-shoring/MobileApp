@@ -1,0 +1,97 @@
+﻿<ion-view view-title="Weather Report">
+    <ion-content class="span12 weather-container" ng-show="weatherReportData">
+        <div id="currentWeather">
+            <div class="row weather-icons {{weatherReportData.weather.conditionClass}}"></div>
+            <div class="row">
+                <div class="col-33">
+                    <h4>{{weatherReportData.weather.condition.text}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h1><span class="temp">{{((weatherReportData.weather.condition.temp - 32) * 5/9) | number:1}}</span><span class="h3">&nbsp;&deg;C</span></h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-20">
+                    <h4>L:{{((weatherReportData.weather.tempMin - 32) * 5/9) | number:1}}<span class="h5">&nbsp;&deg;C</span></h4>
+                </div>
+                <div class="col-33">
+                    <h4>H: {{((weatherReportData.weather.tempMax - 32) * 5/9) | number:1}}<span class="h5">&nbsp;&deg;C</span></h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-33" >
+                    <h5><span style="color:yellow !important">{{weatherReportData.weather.dateTime}}</span></h5>
+                </div>
+            </div>
+            <div><h3>Details</h3></div>
+            <div class="weather-detail">
+                <div class="col">
+                    <div class="row">
+                        <h4>Humidity: {{weatherReportData.weather.humidity}}%</h4>
+                    </div>
+                    <div class="row">
+                        <h4>Pressure: {{weatherReportData.weather.pressure}} hPa</h4>
+                    </div>
+                    <div class="row">
+                        <h4>Wind: {{weatherReportData.weather.wind.speed*3.6}} KM/Hr</h4>
+                    </div>
+                    <div class="row">
+                        <h4>Visibility: {{weatherReportData.weather.visibility}} KM/Hr</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3> {{weatherReportData.location.city}},{{weatherReportData.location.country}}</h3>
+            </div>
+        </div>
+        <div class="weather-detail">
+            <div class="row">
+                <div class="col-33">
+                    <h5>Lat : {{weatherReportData.coords.lat}}</h5>
+                </div>
+                <div class="col-33">
+                    <h5>Long : {{weatherReportData.coords.lon}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-50">
+                    <h4>Sun Rise:{{weatherReportData.astronomy.sunrise}}</h4>
+                </div>
+                <div class="col-50">
+                    <h4>Sun Set:{{weatherReportData.astronomy.sunset}}</h4>
+                </div>
+            </div>
+        </div>
+
+        <div id="weatheForecast">
+            <div> <h3> Forecast </h3></div>
+            <div class="weather-detail">
+                <div class="row">
+                    <div class="col" ng-repeat="item in weatherReportData.forecast">
+                        <div class="col">
+                            <h4>{{item.day}}</h4>
+                        </div>
+                        <div class="col">
+                            <h6>{{item.date}}</h6>
+                        </div>
+                        <div class="col">
+                            <h4>{{((item.high- 32) * 5/9)| number:1}}<span class="h6">&nbsp;&deg;C</span></h4>
+                        </div>
+                        <div class="col">
+                            <h4>{{((item.low - 32) * 5/9) | number:1}}<span class="h6">&nbsp;&deg;C</span></h4>
+                        </div>
+                        <div class="col">
+                            <div class="row weather-icons {{item.cssClass}}"></div>
+                        </div>
+                        <div class="col">
+                            <h6>{{item.text}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

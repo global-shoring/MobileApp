@@ -1,0 +1,41 @@
+﻿<ion-view view-title="Location">
+    <ion-content>
+        <div class="tile-container">
+            <div class="row">
+                <div class="col adp-tiles-lg" ng-click="navigateToView('weatherReport')">
+                    <div class="row">
+                        <div class="col"> Humidity:{{weatherReportData.weather.humidity}}%</div>
+                        <div class="col">Temp:{{((weatherReportData.weather.condition.temp - 32) * 5/9) | number:1}}&nbsp;&deg;C</div>
+                    </div>
+                    <div class="row">
+                        <div class="col"> Wind:{{weatherReportData.weather.wind.speed*3.6}} KM/Hr</div>
+                        <div class="col"><span class="row weather-icons {{weatherReportData.weather.conditionClass}}"></span><span>{{weatherReportData.weather.condition.text}}</span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col"> Pressure:{{weatherReportData.weather.pressure}} hPa</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col adp-tiles-sm" ng-click="navigateToView('associates')">Associate Directory</div>
+                <div class="col adp-tiles-sm" ng-click="navigateToView('contacts/1')">Contacts</div>
+            </div>
+
+            <div class="row">
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('map')">Map</div>
+                <div class="col adp-tiles-sm" ng-click="navigateToView('locationDetails')">location Details</div>
+            </div>
+            
+            <div class="row">
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('news')">News</div>
+                <div class="col adp-tiles-sm" ng-click="navigateToView('events')">Events</div>
+            </div>
+
+            <div class="row">
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('admin')">Admin</div>
+                <div class="col  adp-tiles-sm" ng-click="navigateToView('help')">Help</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
